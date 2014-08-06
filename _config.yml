@@ -1,0 +1,12 @@
+# Site settings
+title: 'yux.ch - Passionate Coding'
+email: raffael@yux.ch
+description: "Website of Raffael Schmid"
+baseurl: ""
+url: "http://yux.ch"
+twitter_username: rafschmid
+github_username:  luxflux
+
+# Build settings
+markdown: kramdown
+permalink: pretty

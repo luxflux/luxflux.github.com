@@ -1,0 +1,155 @@
+---
+---
+
+$photo_url: 'https://www.gravatar.com/avatar/db7bdb5f1fa79a2f681ca855bef60e0f.png?size=';
+
+@import 'bourbon/bourbon';
+@import 'base/base';
+@import 'neat/neat';
+
+$tablet: new-breakpoint(max-width 650px 8);
+$mobile: new-breakpoint(max-width 480px 4);
+
+
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.75em;
+}
+
+.site-content {
+  @include outer-container;
+  margin-top: 2.5em;
+}
+
+.site-header {
+  @include outer-container;
+  background-color: $light-gray;
+  padding: 0em 1em;
+}
+
+.site-title {
+  font-size: 26px;
+  padding: 20px 20px 20px 0px;
+  height: 80px;
+  float: left;
+
+  @include media($tablet) {
+    float: none;
+  }
+}
+
+nav {
+  height: 80px;
+  float: left;
+
+  @include media($tablet) {
+    height: 50px;
+    float: none;
+  }
+}
+
+nav > a {
+  display: block;
+  position: relative;
+  float: left;
+  line-height: 30px;
+  padding: 10px 20px 10px 20px;
+  margin-top: 30px;
+
+  @include media($tablet) {
+    margin-top: 0px;
+  }
+
+  color: $dark-gray;
+
+  &.active {
+    color: $light-gray;
+    background-color: $dark-gray;
+  }
+
+  &.active:before {
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid $base-background-color;
+    bottom: 0;
+    content: "";
+    height: 0;
+    left: 50%;
+    margin: 0 0 0 -7px;
+    position: absolute;
+    width: 0;
+  }
+}
+
+.site-footer {
+  @include outer-container;
+}
+
+.footer-center {
+  @include span-columns(8);
+  @include shift(2);
+  text-align: center;
+}
+
+.icon > svg {
+  height: 1em;
+  width: 1em;
+}
+
+.main-content {
+  padding: 0.5em 10px 0.5em 10px;
+
+  @include span-columns(8);
+
+  @include media($tablet) {
+    @include span-columns(5);
+  }
+
+  @include media($mobile) {
+    @include span-columns(4);
+  }
+}
+
+.side-content {
+  padding: 0.5em 10px 0.5em 10px;
+
+  @include span-columns(4);
+
+  @include media($tablet) {
+    @include span-columns(3);
+  }
+
+  @include media($mobile) {
+    @include span-columns(4);
+  }
+}
+
+.my-photo {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $light-gray;
+
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  background: url($photo_url + '200');
+
+  @include media($tablet) {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    background: url($photo_url + '150');
+  }
+
+  @include media($mobile) {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background: url($photo_url + '100');
+  }
+}
+
