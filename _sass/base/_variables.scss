@@ -20,8 +20,8 @@ $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
 
-$light-purple: #BF55EC;
-$dark-purple: #663399;
+$dark-purple: #BF55EC;
+$light-purple: lighten($dark-purple, 5);
 
 // Background Color
 $base-background-color: white;

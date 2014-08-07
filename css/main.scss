@@ -3,6 +3,7 @@
 
 @import url(http://fonts.googleapis.com/css?family=Karma:400,500);
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,500);
+@import url(http://fonts.googleapis.com/css?family=Inconsolata);
 
 $photo_url: 'https://www.gravatar.com/avatar/db7bdb5f1fa79a2f681ca855bef60e0f.png?size=';
 
@@ -21,6 +22,41 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.75em;
+
+  a {
+    color: $base-font-color;
+
+    &:hover {
+      color: $base-font-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+code, pre {
+  border: 1px solid $light-gray;
+  border-radius: 3px;
+  padding: 0.1em 0.3em;
+  font-family: 'Inconsolata', monospace;
+  overflow: scroll;
+}
+
+pre code {
+  border: none;
+  padding: 0;
+}
+
+.button {
+  @extend %button;
+  font-family: $sans-serif;
+}
+
+.post-date {
+  color: $light-gray;
+}
+
+.post-preview + .post-preview {
+  margin-top: 3em;
 }
 
 .site-content {
@@ -31,7 +67,7 @@ h1, h2, h3, h4, h5, h6 {
 .site-header {
   @include outer-container;
   max-width: 100%;
-  background-color: $light-purple;
+  background-color: $dark-purple;
   padding: 0em 1em;
 }
 
@@ -72,7 +108,7 @@ nav > a {
   color: $dark-gray;
 
   &.active {
-    background-color: lighten($light-purple, 5);
+    background-color: $light-purple;
   }
 
   &.active:before {
@@ -104,12 +140,20 @@ nav > a {
   width: 1em;
 }
 
-.main-content {
-  font-family: $serif;
-  font-weight: 500;
-  font-size: 1.3em;
-  padding: 0.5em 10px 0.5em 10px;
+.focus-content, .main-content {
+  font-size: 1.2em;
+  padding: 0.5em 1em;
 
+  @include media($tablet) {
+    font-size: 1.1em;
+  }
+
+  @include media($mobile) {
+    font-size: 1.0em;
+  }
+}
+
+.main-content {
   @include span-columns(8);
 
   @include media($tablet) {
