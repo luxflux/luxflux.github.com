@@ -1,7 +1,10 @@
 <header class="site-header">
   <div class="site-title">{{ site.title }}</div>
+  {% for page in site.pages %}
+    <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+  {% endfor %}
   <nav>
-    <a class="active" href="{{ site.baseurl }}/">About Me</a>
-    <a href="http://blog.yux.ch">Blog</a>
+    <a {% if page.link_active == 'about_me' %}class="active" {% endif %}href="{{ site.baseurl }}/">About Me</a>
+    <a {% if page.link_active == 'blog' %}class="active" {% endif %}href="{{ site.baseurl }}/blog/">Blog</a>
   </nav>
 </header>
