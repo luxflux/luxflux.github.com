@@ -1,6 +1,9 @@
 ---
 ---
 
+@import url(http://fonts.googleapis.com/css?family=Karma:400,500);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,500);
+
 $photo_url: 'https://www.gravatar.com/avatar/db7bdb5f1fa79a2f681ca855bef60e0f.png?size=';
 
 @import 'bourbon/bourbon';
@@ -27,7 +30,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .site-header {
   @include outer-container;
-  background-color: $light-gray;
+  max-width: 100%;
+  background-color: $light-purple;
   padding: 0em 1em;
 }
 
@@ -59,6 +63,7 @@ nav > a {
   line-height: 30px;
   padding: 10px 20px 10px 20px;
   margin-top: 30px;
+  font-weight: 500;
 
   @include media($tablet) {
     margin-top: 0px;
@@ -67,8 +72,7 @@ nav > a {
   color: $dark-gray;
 
   &.active {
-    color: $light-gray;
-    background-color: $dark-gray;
+    background-color: lighten($light-purple, 5);
   }
 
   &.active:before {
@@ -101,6 +105,9 @@ nav > a {
 }
 
 .main-content {
+  font-family: $serif;
+  font-weight: 500;
+  font-size: 1.3em;
   padding: 0.5em 10px 0.5em 10px;
 
   @include span-columns(8);

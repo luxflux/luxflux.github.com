@@ -1,6 +1,6 @@
 // Typography
-$sans-serif: $helvetica;
-$serif: $georgia;
+$sans-serif: 'Raleway';
+$serif: 'Karma';
 $base-font-family: $sans-serif;
 $header-font-family: $base-font-family;
 
@@ -20,12 +20,15 @@ $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
 
+$light-purple: #BF55EC;
+$dark-purple: #663399;
+
 // Background Color
 $base-background-color: white;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$base-accent-color: $blue;
+$base-accent-color: $dark-purple;
 
 // Link Colors
 $base-link-color: $base-accent-color;
