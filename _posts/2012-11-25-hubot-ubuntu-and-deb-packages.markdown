@@ -3,6 +3,7 @@ layout: post
 title: "Hubot, Ubuntu and .deb packages"
 date: 2012-11-25 15:58
 comments: true
+categories: [Ubuntu, .deb, Hubot, Ruby, Rake]
 ---
 
 This week I finally got the time to check out [Hubot](http://hubot.github.com/).
