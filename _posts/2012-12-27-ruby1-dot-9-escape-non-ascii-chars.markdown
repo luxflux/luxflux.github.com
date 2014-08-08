@@ -4,6 +4,7 @@ title: "Ruby1.9: Escape non-ASCII chars"
 date: 2012-12-27 20:47
 comments: true
 categories: [Ruby, Ruby1.9, ASCII, Unicode]
+redirect_from: '/blog/2012/12/27/ruby1-dot-9-escape-non-ascii-chars/'
 ---
 
 What I learned recently about Unicode and Ruby. There is a [TL;DR](/blog/2012/12/27/ruby1-dot-9-escape-non-ascii-chars/#tldr).

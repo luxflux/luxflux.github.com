@@ -10,4 +10,8 @@ excerpt_separator: "<!-- more -->"
 
 # Build settings
 markdown: kramdown
-permalink: pretty
+permalink: "/blog/:year/:month/:day/:title.html"
+
+gems:
+  - jekyll-redirect-from
+

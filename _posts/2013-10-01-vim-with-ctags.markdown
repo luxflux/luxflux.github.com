@@ -4,6 +4,7 @@ title: "Vim with Ctags"
 date: 2013-10-01 23:48
 comments: true
 categories: [Vim]
+redirect_from: '/blog/2013/10/01/vim-with-ctags/'
 ---
 
 Today I setup my Vim to use [ctags](http://ctags.sourceforge.net/).

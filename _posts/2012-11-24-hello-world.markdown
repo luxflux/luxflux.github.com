@@ -4,6 +4,7 @@ title: "Hello World"
 date: 2012-11-24 18:59
 comments: true
 categories:
+redirect_from: '/blog/2012/11/24/hello-world/'
 ---
 
 Hi everyone. This is the hello world post of this blog. This is the blog

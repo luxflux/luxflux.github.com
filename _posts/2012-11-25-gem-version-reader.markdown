@@ -4,6 +4,7 @@ title: "Gem: Version Reader"
 date: 2012-11-25 15:16
 comments: true
 categories: [Ruby, Gem, version_reader]
+redirect_from: '/blog/2012/11/25/gem-version-reader/'
 ---
 
 If you are using a ```VERSION```-file to give your new (or old) cool

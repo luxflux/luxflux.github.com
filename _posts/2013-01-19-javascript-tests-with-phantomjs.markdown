@@ -4,6 +4,7 @@ title: "Javascript tests with PhantomJS"
 date: 2013-01-19 17:57
 comments: true
 categories: ['Ruby', 'Rails', 'Test', 'RSpec', 'PhantomJS', 'Capybara']
+redirect_from: '/blog/2013/01/19/javascript-tests-with-phantomjs/'
 ---
 
 Today I wanted to write some javascript tests for my [Moviezz](https://github.com/luxflux/Moviez) project.
