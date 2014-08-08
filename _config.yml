@@ -1,6 +1,7 @@
 # Site settings
 title: 'yux.ch - Passionate Coding'
 email: raffael@yux.ch
+author: 'Raffael Schmid'
 description: "Website of Raffael Schmid"
 baseurl: ""
 url: "http://yux.ch"
