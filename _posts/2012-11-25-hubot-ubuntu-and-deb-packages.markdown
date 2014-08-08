@@ -15,10 +15,10 @@ jenkins task to build the package.
 
 I came out with a solution where you just need to run two commands to
 create a new package from upstream:
-```bash
+{% highlight bash %}
 rake prepare[2.3.2]
 rake build
-```
+{% endhighlight %}
 
 <!-- more -->
 
@@ -36,19 +36,19 @@ I decided to use ```rake```.
 
 There is a configfile, ```config.yml```.
 
-```ruby Configfile (config.yml)
+{% highlight ruby %}
 package_url: 'https://github.com/downloads/github/hubot'
 scripts_url: 'https://raw.github.com/github/hubot-scripts/master/src/scripts'
 scripts:
  - jenkins
  - moarcatsme
  - redmine
-```
+{% endhighlight %}
 
 The ```Rakefile``` contains all the rake-tasks which are used to build
 the package.
 
-```ruby Rakefile
+{% highlight ruby %}
 require 'yaml'
 
 desc "Prepare the package"
@@ -82,7 +82,7 @@ task :build do
 
   sh 'fpm -s dir -t deb -n hubot-init --prefix / -v $(cat VERSION) -d hubot,upstart --package packages/hubot-init-$(cat VERSION)_amd64.deb etc'
 end
-```
+{% endhighlight %}
 
 The ```prepare```-task takes one argument which should be the version (e.g ```2.3.2```).
 It downloads the tarball of this version and extracts it in a subfolder.
@@ -92,9 +92,9 @@ Afterwards it installs the ```npm```-modules to another subfolder of
 hubot.
 
 The most interesting part are the ```fpm```-lines:
-```ruby fpm command to create the package
+{% highlight ruby %}
 sh 'fpm -s dir -t deb -n hubot --prefix /opt -v $(cat ../VERSION) -d nodejs --after-install ../postinst --before-install ../preinst hubot'
-```
+{% endhighlight %}
 
 This command creates a debian package (```-t deb```) from a directory
 (```-s dir```) and throws all the stuff of the given directory
@@ -107,9 +107,9 @@ the stuff in ```/opt/workdir/hubot```.
 
 The second fpm command packages the init script and the example config
 file from the ```etc```-folder.
-```ruby fpm command to package the init script and example config
+{% highlight ruby %}
 sh 'fpm -s dir -t deb -n hubot-init --prefix / -v $(cat VERSION) -d hubot,upstart --package packages/hubot-init-$(cat VERSION)_amd64.deb etc'
-```
+{% endhighlight %}
 
 The ```preinst``` and ```postinst``` scripts just add a ```hubot```
 user and set the rights on ```/opt/hubot``` as fpm
@@ -118,7 +118,7 @@ yet.
 
 I tried several times to get all these stuff working. For an easier cleanup
 between the tries, I added another task:
-```ruby cleanup task
+{% highlight ruby %}
 require 'fileutils'
 
 desc "Cleanup the workdir"
@@ -126,10 +126,10 @@ task :cleanup do
   FileUtils.rm_r 'workdir' if File.exists? 'workdir'
   FileUtils.rm_r 'packages' if File.exists? 'packages'
 end
-```
+{% endhighlight %}
 
 Now we just need to modify the ```config.yml```, push the changes and
 call Hubot in our IRC-Channel to trigger the jenkins build:
-```
+{% highlight console %}
 hubot jenkins build hubot-build-deb, version=2.3.2
-```
+{% endhighlight %}

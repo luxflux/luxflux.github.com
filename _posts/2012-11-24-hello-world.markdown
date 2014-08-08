@@ -17,4 +17,3 @@ changed "Web Software Developer", finally.
 
 This blog is hosted on [github-pages](http://pages.github.com/) and
 powered by [Octopress](http://octopress.org/).
-

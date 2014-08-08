@@ -9,13 +9,11 @@ link_active: blog
       <div class="post-date">{{ post.date | date: "%b %-d, %Y" }}</div>
       <h1><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
       <div class="post-content-truncate">
+        {{ post.excerpt }}
         {% if post.content contains "<!-- more -->" %}
-          {{ post.content | split:"<!-- more -->" | first % }}
-        {% else %}
-          {{ post.content | strip_html | truncatewords:100 }}
+          <a class="button" href="{{ post.url | prepend: site.baseurl }}">Read on</a>
         {% endif %}
       </div>
-      <a class="button" href="{{ post.url | prepend: site.baseurl }}">Read on</a>
     </div>
   {% endfor %}
 </div>

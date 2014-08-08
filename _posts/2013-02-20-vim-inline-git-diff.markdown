@@ -17,6 +17,8 @@ Last week, I started over with my Vim configuration. I was using the
 pretty nice Vim configuration. But after working with it for some months, I
 started to feel uncomfortable with it as it had just too much features.
 
+<!-- more -->
+
 As part of building up my Vim configuration, I also checked again the topic
 of inline git annotations.
 I googled once more and found out, that these annotations are called ```signs```

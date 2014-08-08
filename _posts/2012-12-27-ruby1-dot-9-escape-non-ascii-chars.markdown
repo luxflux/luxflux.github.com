@@ -20,17 +20,17 @@ The error was something like ```SieveError PUTSCRIPT: Too many arguments```.
 Yeah, what does this mean...? [The RFC says](http://tools.ietf.org/html/draft-martin-managesieve-12#section-2.6)
 that the syntax for ```PUTSCRIPT``` is like the following:
 
-```
+{% highlight console %}
 Putscript "mysievescript" {110+}
 require ["fileinto"];
 
 if envelope :contains "to" "tmartin+sent" {
   fileinto "INBOX.sent";
 }
-```
+{% endhighlight %}
 
 A failing upload looked like this:
-```
+{% highlight console %}
 Putscript "mysievescript" {823+}
 require ["fileinto","vacation","body","date","relational"];
 
@@ -47,7 +47,7 @@ if header :contains ["X-Spam-Flag"] "YES" {
 .
 .
 .
-```
+{% endhighlight %}
 
 So this should work, no? Nope, doesn't. Hmm, there are umlauts in this vacation message... Trial and error shows, that removing them helps and
 the script is accepted by the server.
@@ -61,7 +61,7 @@ We "just" have to escape these special chars according [the RFC](http://tools.ie
 
 A first try with the following code gave me the broken characters (Ã¼, Ã¤, ...) in the vacation answer, known from UTF-8/ISO problems.
 
-```ruby
+{% highlight ruby %}
 def text
   clean_text = ''
   @text.join("\n").each_byte do |byte|
@@ -73,13 +73,13 @@ def text
   end
   clean_text
 end
-```
+{% endhighlight %}
 
 Relevant part from the sieve script:
-```text
+{% highlight text %}
 unser b${UNICODE:c3}${UNICODE:bc}ro ist wegen ferienabwesenheit geschlossen.
 in dringenden f${UNICODE:bc}${UNICODE:e4}llen erreichen sie uns unter ....
-```
+{% endhighlight %}
 
 I shortly googled an [utf-8 chartable](http://www.utf8-chartable.de/) and checked the content of the script.
 Looks like my simple ```ü``` and ```ä``` are two bytes in Unicode? And when we just translate one byte at a time, this gives us
@@ -93,7 +93,7 @@ Now it works!
 
 Final version of the method to use ```each_codepoint```:
 
-```ruby
+{% highlight ruby %}
 def text
   clean_text = ''
   @text.join("\n").each_codepoint do |codepoint|
@@ -105,13 +105,13 @@ def text
   end
   clean_text
 end
-```
+{% endhighlight %}
 
 Relevant part from sieve script:
-```text
+{% highlight text %}
 unser b${UNICODE:fc}ro ist wegen ferienabwesenheit geschlossen.
 in dringenden f${UNICODE:e4}llen erreichen sie uns unter ....
-```
+{% endhighlight %}
 
 
 # <a id='tldr'></a> TL;DR

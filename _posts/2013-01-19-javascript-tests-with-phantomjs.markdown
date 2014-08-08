@@ -20,20 +20,20 @@ This also gives you the ability to run your javascript tests via Jenkins or Trav
 
 At first, I verified that ```capybara``` is in my ```Gemfile```.
 
-```ruby Gemfile
+{% highlight ruby %}
 gem 'capybara', group: :test
-```
+{% endhighlight %}
 
 It also has to be loaded by ```RSpec```, so I required it in ```spec_helper```.
-```ruby spec/spec_helper.rb
+{% highlight ruby %}
 require 'capybara/rspec'
 require 'capybara/rails'
-```
+{% endhighlight %}
 
 After this, I went on and wrote the first javascript test with RSpec.
 Note the ```js: true``` on line 7, this switches the Capybara driver to the javascript adapter.
 
-```ruby spec/integration/search_movie_spec.rb
+{% highlight ruby %}
 require 'spec_helper'
 
 describe 'search for a movie' do
@@ -47,7 +47,7 @@ describe 'search for a movie' do
     page.should have_content('Star Wars Episode VII')
   end
 end
-```
+{% endhighlight %}
 
 When I ran the test, Capybara opened a new Firefox window and did my defined steps as expected.
 
@@ -55,9 +55,9 @@ To use PhantomJS with Capybara, you have to switch to another adapter.
 There is an adapter called Poltergeist which enables you to use PhantomJS.
 So I went on and added Poltergeist to my Gemfile.
 
-```ruby Gemfile
+{% highlight ruby %}
 gem 'poltergeist', group: :test
-```
+{% endhighlight %}
 
 As soon as I required ```capybara/poltergeist``` and added ```Capybara.javascript_driver = :poltergeist``` in ```spec_helper.rb```, my javascript test passed without opening a window.
 
@@ -68,7 +68,7 @@ But there is a caveat, the truncation strategy is slower.
 As I like my tests run fast, I wrote the following RSpec configuration which just enables the truncation strategy
 for tests with ```js: true``` set.
 
-```ruby spec/support/javascript.rb
+{% highlight ruby %}
 RSpec.configure do |config|
 
   config.before :suite do
@@ -91,16 +91,16 @@ RSpec.configure do |config|
   end
 
 end
-```
+{% endhighlight %}
 
 Note, that I also moved ```Capybara.javascript_driver = :poltergeist``` into this config file as it belongs to the javascript configuration.
 
 After this, I just had to disable the default transactional feature in ```spec_helper.rb```
-```ruby spec_helper.rb
+{% highlight ruby %}
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
 end
-```
+{% endhighlight %}
 
 Now, I have headless javascript tests and the fastest possible database cleanup strategy depending on the test type.
 

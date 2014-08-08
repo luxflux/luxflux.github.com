@@ -6,6 +6,7 @@ baseurl: ""
 url: "http://yux.ch"
 twitter_username: rafschmid
 github_username:  luxflux
+excerpt_separator: "<!-- more -->"
 
 # Build settings
 markdown: kramdown
