@@ -73,6 +73,7 @@ pre code {
   max-width: 100%;
   background-color: $dark-purple;
   padding: 0em 1em;
+  color: $base-background-color;
 }
 
 .site-title {
@@ -109,7 +110,7 @@ nav > a {
     margin-top: 0px;
   }
 
-  color: $dark-gray;
+  color: $base-background-color;
 
   &.active {
     background-color: $light-purple;
