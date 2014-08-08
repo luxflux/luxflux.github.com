@@ -5,6 +5,7 @@ date: 2013-02-20 22:23
 comments: true
 categories: ['Vim', 'Ruby', 'Git']
 redirect_from: '/blog/2013/02/20/vim-inline-git-diff/'
+disqus_identifier: 'http://blog.yux.ch/blog/2013/02/20/vim-inline-git-diff/'
 ---
 
 A few weeks ago, I heard about the Sublime Text Plugin [GitGutter](https://github.com/jisaacks/GitGutter).
