@@ -138,6 +138,10 @@ nav > a {
   @include span-columns(8);
   @include shift(2);
   text-align: center;
+
+  a {
+    margin-right: 1em;
+  }
 }
 
 .icon > svg {
