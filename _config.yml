@@ -12,6 +12,12 @@ excerpt_separator: "<!-- more -->"
 # Build settings
 markdown: kramdown
 permalink: "/blog/:year/:month/:day/:title.html"
+exclude:
+  - CNAME
+  - config
+  - vendor
+  - Gemfile
+  - Gemfile.lock
 
 gems:
   - jekyll-redirect-from
