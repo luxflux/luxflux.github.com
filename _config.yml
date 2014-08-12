@@ -18,6 +18,7 @@ exclude:
   - vendor
   - Gemfile
   - Gemfile.lock
+  - Rakefile
 
 gems:
   - jekyll-redirect-from
