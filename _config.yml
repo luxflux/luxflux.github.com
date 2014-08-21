@@ -23,4 +23,5 @@ exclude:
 
 gems:
   - jekyll-redirect-from
+  - jekyll-sitemap
 
