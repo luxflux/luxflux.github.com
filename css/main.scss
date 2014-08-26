@@ -225,5 +225,10 @@ nav > a {
     background: url($photo_url + '200');
     background-size: 100px;
   }
+
+  img {
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
 }
 
