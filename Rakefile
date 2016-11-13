@@ -1,3 +1,7 @@
+desc 'Test view of the website'
+task :watch do
+  sh 'jekyll serve -w'
+end
 
 desc 'Build website'
 task :build do

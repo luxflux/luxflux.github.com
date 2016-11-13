@@ -48,7 +48,7 @@ GEM
     jekyll-watch (1.1.0)
       listen (~> 2.7)
     kramdown (1.4.1)
-    libv8 (3.16.14.11)
+    libv8 (3.16.14.15)
     liquid (2.6.1)
     listen (2.7.9)
       celluloid (>= 0.15.2)
@@ -91,3 +91,6 @@ DEPENDENCIES
   jekyll-sitemap
   neat
   therubyracer
+
+BUNDLED WITH
+   1.13.5
