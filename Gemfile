@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'jekyll'
-gem 'jekyll-redirect-from'
-gem 'jekyll-sitemap'
+gem 'github-pages', group: :jekyll_plugins
 
 gem 'bourbon'
 gem 'neat'
